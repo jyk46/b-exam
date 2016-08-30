@@ -50,8 +50,8 @@ num_bmarks = len( bmarks )
 # Configurations
 
 configs = [
-  'io',
-  'o3',
+  'IO',
+  'O3',
   '4/1x8/1',
   '4/2x8/1',
   '4/4x8/1',
@@ -137,7 +137,7 @@ groups = {
 
 # Results
 
-scale_factor = 3.0 # rough estimate of savings with L0 on io/o3
+scale_factor = 1.0 # rough estimate of savings with L0 on io/o3
 
 energy_dic = [
 
@@ -738,7 +738,7 @@ for i, ( ax, bmark ) in enumerate( zip( axes, bmarks ) ):
   xmin = 0.0
   xmax = num_configs
   ymin = 0.0
-  ymax = 2.0 if i == 0 else 1.7
+  ymax = ( sum( energy_dic[i][1].values() ) - energy_dic[i][1]['bypass/pipereg'] ) / 1e9 + 0.01
   ax.set_xticks( ind+width )
   ax.set_xticklabels( configs, rotation=90, fontsize=14 )
   ax.set_yticks( np.arange( 0.0, ymax + 0.4, 0.4 ) )
