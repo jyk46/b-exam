@@ -28,7 +28,7 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="380.16192"
+     inkscape:cx="229.16192"
      inkscape:cy="235.11322"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -42,7 +42,7 @@
      inkscape:showpageshadow="false"
      inkscape:window-width="1920"
      inkscape:window-height="1097"
-     inkscape:window-x="0"
+     inkscape:window-x="1915"
      inkscape:window-y="23"
      showguides="true"
      inkscape:window-maximized="0"
@@ -329,7 +329,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -430,7 +430,7 @@
          x="690.88977"
          id="tspan4349"
          sodipodi:role="line"
-         style="font-size:40.45204543999999913px;fill:#000000;">CUDA</tspan></text>
+         style="font-size:40.45204543999999913px;fill:#000000;font-weight:bold">CUDA</tspan></text>
     <rect
        y="493.51459"
        x="538.43445"

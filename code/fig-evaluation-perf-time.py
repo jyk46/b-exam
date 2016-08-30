@@ -18,7 +18,7 @@ import numpy as np
 fig_width_pt  = 768.0
 inches_per_pt = 1.0/72.27                     # convert pt to inch
 
-aspect_ratio  = 0.50
+aspect_ratio  = 0.52
 
 fig_width     = 10.0                          # width in inches
 fig_height    = fig_width * aspect_ratio      # height in inches
@@ -39,7 +39,7 @@ plt.rcParams['figure.figsize']     = fig_size
 #-------------------------------------------------------------------------
 
 def draw_cutoffs( init_x, init_y, label, x_tweak=0.0, y_tweak=0.0 ):
-  x1 = [ init_x, init_x + 0.1 ]
+  x1 = [ init_x, init_x + 0.15 ]
   y1 = [ init_y, init_y + 0.2 ]
   y2 = [ y1[0] - 0.2, y1[1] - 0.2 ]
 
@@ -109,10 +109,10 @@ num_bmarks = len( bmarks )
 configs = [
   'IO',
   'O3',
-  'LTA-4/2x8/1',
-  'LTA-4/2x8/2',
-  'LTA-4/2x8/4',
-  'LTA-4/2x8/8',
+#  'LTA-4/2x8/1',
+#  'LTA-4/2x8/2',
+#  'LTA-4/2x8/4',
+#  'LTA-4/2x8/8',
 #  'LTA-8/2x4/1',
 #  'LTA-8/2x4/2',
 #  'LTA-8/2x4/4',
@@ -137,10 +137,10 @@ pib_area = 1064.40
 core_area = [
   75981.95,     # io
   75981.95 * 3, # o3
-  680345.62, #905239.70,    # LTA-4/2x8/1
-  680345.62, #905239.70,    # LTA-4/2x8/2
-  680345.62, #905239.70,    # LTA-4/2x8/4
-  680345.62, #905239.70,    # LTA-4/2x8/8
+#  680345.62, #905239.70,    # LTA-4/2x8/1
+#  680345.62, #905239.70,    # LTA-4/2x8/2
+#  680345.62, #905239.70,    # LTA-4/2x8/4
+#  680345.62, #905239.70,    # LTA-4/2x8/8
 #  862954.44, #1087848.52,   # LTA-8/2x4/1
 #  862954.44, #1087848.52,   # LTA-8/2x4/2
 #  862954.44, #1087848.52,   # LTA-8/2x4/4
@@ -152,16 +152,16 @@ core_area = [
 area_data = [
   core_area[0]  + cache_area[0],
   core_area[1]  + cache_area[0],
-  core_area[2]  + cache_area[1],
-  core_area[3]  + cache_area[1] + pib_area * 2,
-  core_area[4]  + cache_area[1] + pib_area * 3 * 2,
-  core_area[5]  + cache_area[1] + pib_area * 7 * 2,
+#  core_area[2]  + cache_area[1],
+#  core_area[3]  + cache_area[1] + pib_area * 2,
+#  core_area[4]  + cache_area[1] + pib_area * 3 * 2,
+#  core_area[5]  + cache_area[1] + pib_area * 7 * 2,
 #  core_area[6]  + cache_area[2],
 #  core_area[7]  + cache_area[2] + pib_area * 2,
 #  core_area[8]  + cache_area[2] + pib_area * 3 * 2,
-  core_area[6]  + cache_area[1],
-  core_area[7] + cache_area[1] + pib_area * 4,
-  core_area[8] + cache_area[1] + pib_area * 3 * 4,
+  core_area[2]  + cache_area[1],
+  core_area[3] + cache_area[1] + pib_area * 4,
+  core_area[4] + cache_area[1] + pib_area * 3 * 4,
 ]
 
 # Results (execution time in seconds)
@@ -212,93 +212,93 @@ cycle_data = [
     9.5489e+06,   #  strsearch-scalar
   ],
 
-  # LTA-4/2x8/1
-
-  [
-    9.22017e+06,  #  bilateral-xpc
-    2.33754e+07,  #  dct8x8m-xpc
-    1.93217e+06,  #  mriq-xpc
-    3.56515e+07,  #  pbbs-bfs-deterministicBFS-parc-xpc-small
-    6.0832e+07,   #  pbbs-bfs-ndBFS-parc-xpc-small
-    2.85791e+07,  #  pbbs-dict-deterministicHash-parc-xpc-small
-    6.90154e+07,  #  pbbs-isort-blockRadixSort-parc-xpc-small
-    6.75429e+07,  #  pbbs-isort-blockRadixSort-parc-xpc-small-1
-    4.90623e+07,  #  pbbs-knn-octTree2Neighbors-parc-xpc-small
-    3.67955e+07,  #  pbbs-mis-ndMIS-parc-xpc-small
-    4.40686e+07,  #  pbbs-mm-ndMatching-parc-xpc-small
-    2.6983e+07,   #  pbbs-nbody-parallelBarnesHut-parc-xpc-small
-    4.16018e+07,  #  pbbs-rdups-deterministicHash-parc-xpc-small
-    1.01901e+07,  #  rgb2cmyk-xpc
-    7.7595e+07,   #  pbbs-sa-parallelRange-parc-xpc-small
-    1.64291e+07,  #  sgemm-xpc
-    9.2244e+06,   #  strsearch-xpc
-  ],
-
-  # LTA-4/2x8/2
-
-  [
-    8.63051e+06,  #  bilateral-xpc
-    2.37315e+07,  #  dct8x8m-xpc
-    1.73027e+06,  #  mriq-xpc
-    3.58237e+07,  #  pbbs-bfs-deterministicBFS-parc-xpc-small
-    5.98692e+07,  #  pbbs-bfs-ndBFS-parc-xpc-small
-    3.18636e+07,  #  pbbs-dict-deterministicHash-parc-xpc-small
-    6.78158e+07,  #  pbbs-isort-blockRadixSort-parc-xpc-small
-    6.68148e+07,  #  pbbs-isort-blockRadixSort-parc-xpc-small-1
-    4.89574e+07,  #  pbbs-knn-octTree2Neighbors-parc-xpc-small
-    3.69622e+07,  #  pbbs-mis-ndMIS-parc-xpc-small
-    4.25972e+07,  #  pbbs-mm-ndMatching-parc-xpc-small
-    4.30216e+07,  #  pbbs-nbody-parallelBarnesHut-parc-xpc-small
-    4.38003e+07,  #  pbbs-rdups-deterministicHash-parc-xpc-small
-    1.13956e+07,  #  rgb2cmyk-xpc
-    7.98781e+07,  #  pbbs-sa-parallelRange-parc-xpc-small
-    1.38198e+07,  #  sgemm-xpc
-    6.9701e+06,   #  strsearch-xpc
-  ],
-
-  # LTA-4/2x8/4
-
-  [
-    8.78448e+06,  #  bilateral-xpc
-    2.37295e+07,  #  dct8x8m-xpc
-    1.8624e+06,   #  mriq-xpc
-    3.59144e+07,  #  pbbs-bfs-deterministicBFS-parc-xpc-small
-    6.06277e+07,  #  pbbs-bfs-ndBFS-parc-xpc-small
-    2.97782e+07,  #  pbbs-dict-deterministicHash-parc-xpc-small
-    6.75005e+07,  #  pbbs-isort-blockRadixSort-parc-xpc-small
-    6.9332e+07,   #  pbbs-isort-blockRadixSort-parc-xpc-small-1
-    4.77358e+07,  #  pbbs-knn-octTree2Neighbors-parc-xpc-small
-    3.65907e+07,  #  pbbs-mis-ndMIS-parc-xpc-small
-    4.3188e+07,   #  pbbs-mm-ndMatching-parc-xpc-small
-    4.40858e+07,  #  pbbs-nbody-parallelBarnesHut-parc-xpc-small
-    4.39771e+07,  #  pbbs-rdups-deterministicHash-parc-xpc-small
-    1.68911e+07,  #  rgb2cmyk-xpc
-    7.97067e+07,  #  pbbs-sa-parallelRange-parc-xpc-small
-    1.51311e+07,  #  sgemm-xpc
-    7.89144e+06,  #  strsearch-xpc
-  ],
-
-  # LTA-4/2x8/8
-
-  [
-    1.04195e+07,  #  bilateral-xpc
-    2.47246e+07,  #  dct8x8m-xpc
-    2.85269e+06,  #  mriq-xpc
-    3.68561e+07,  #  pbbs-bfs-deterministicBFS-parc-xpc-small
-    6.41461e+07,  #  pbbs-bfs-ndBFS-parc-xpc-small
-    4.04031e+07,  #  pbbs-dict-deterministicHash-parc-xpc-small
-    7.21379e+07,  #  pbbs-isort-blockRadixSort-parc-xpc-small
-    6.93992e+07,  #  pbbs-isort-blockRadixSort-parc-xpc-small-1
-    4.77274e+07,  #  pbbs-knn-octTree2Neighbors-parc-xpc-small
-    3.93823e+07,  #  pbbs-mis-ndMIS-parc-xpc-small
-    5.09125e+07,  #  pbbs-mm-ndMatching-parc-xpc-small
-    3.40489e+07,  #  pbbs-nbody-parallelBarnesHut-parc-xpc-small
-    5.04328e+07,  #  pbbs-rdups-deterministicHash-parc-xpc-small
-    1.88981e+07,  #  rgb2cmyk-xpc
-    8.55908e+07,  #  pbbs-sa-parallelRange-parc-xpc-small
-    2.16114e+07,  #  sgemm-xpc
-    8.63648e+06,  #  strsearch-xpc
-  ],
+#  # LTA-4/2x8/1
+#
+#  [
+#    9.22017e+06,  #  bilateral-xpc
+#    2.33754e+07,  #  dct8x8m-xpc
+#    1.93217e+06,  #  mriq-xpc
+#    3.56515e+07,  #  pbbs-bfs-deterministicBFS-parc-xpc-small
+#    6.0832e+07,   #  pbbs-bfs-ndBFS-parc-xpc-small
+#    2.85791e+07,  #  pbbs-dict-deterministicHash-parc-xpc-small
+#    6.90154e+07,  #  pbbs-isort-blockRadixSort-parc-xpc-small
+#    6.75429e+07,  #  pbbs-isort-blockRadixSort-parc-xpc-small-1
+#    4.90623e+07,  #  pbbs-knn-octTree2Neighbors-parc-xpc-small
+#    3.67955e+07,  #  pbbs-mis-ndMIS-parc-xpc-small
+#    4.40686e+07,  #  pbbs-mm-ndMatching-parc-xpc-small
+#    2.6983e+07,   #  pbbs-nbody-parallelBarnesHut-parc-xpc-small
+#    4.16018e+07,  #  pbbs-rdups-deterministicHash-parc-xpc-small
+#    1.01901e+07,  #  rgb2cmyk-xpc
+#    7.7595e+07,   #  pbbs-sa-parallelRange-parc-xpc-small
+#    1.64291e+07,  #  sgemm-xpc
+#    9.2244e+06,   #  strsearch-xpc
+#  ],
+#
+#  # LTA-4/2x8/2
+#
+#  [
+#    8.63051e+06,  #  bilateral-xpc
+#    2.37315e+07,  #  dct8x8m-xpc
+#    1.73027e+06,  #  mriq-xpc
+#    3.58237e+07,  #  pbbs-bfs-deterministicBFS-parc-xpc-small
+#    5.98692e+07,  #  pbbs-bfs-ndBFS-parc-xpc-small
+#    3.18636e+07,  #  pbbs-dict-deterministicHash-parc-xpc-small
+#    6.78158e+07,  #  pbbs-isort-blockRadixSort-parc-xpc-small
+#    6.68148e+07,  #  pbbs-isort-blockRadixSort-parc-xpc-small-1
+#    4.89574e+07,  #  pbbs-knn-octTree2Neighbors-parc-xpc-small
+#    3.69622e+07,  #  pbbs-mis-ndMIS-parc-xpc-small
+#    4.25972e+07,  #  pbbs-mm-ndMatching-parc-xpc-small
+#    4.30216e+07,  #  pbbs-nbody-parallelBarnesHut-parc-xpc-small
+#    4.38003e+07,  #  pbbs-rdups-deterministicHash-parc-xpc-small
+#    1.13956e+07,  #  rgb2cmyk-xpc
+#    7.98781e+07,  #  pbbs-sa-parallelRange-parc-xpc-small
+#    1.38198e+07,  #  sgemm-xpc
+#    6.9701e+06,   #  strsearch-xpc
+#  ],
+#
+#  # LTA-4/2x8/4
+#
+#  [
+#    8.78448e+06,  #  bilateral-xpc
+#    2.37295e+07,  #  dct8x8m-xpc
+#    1.8624e+06,   #  mriq-xpc
+#    3.59144e+07,  #  pbbs-bfs-deterministicBFS-parc-xpc-small
+#    6.06277e+07,  #  pbbs-bfs-ndBFS-parc-xpc-small
+#    2.97782e+07,  #  pbbs-dict-deterministicHash-parc-xpc-small
+#    6.75005e+07,  #  pbbs-isort-blockRadixSort-parc-xpc-small
+#    6.9332e+07,   #  pbbs-isort-blockRadixSort-parc-xpc-small-1
+#    4.77358e+07,  #  pbbs-knn-octTree2Neighbors-parc-xpc-small
+#    3.65907e+07,  #  pbbs-mis-ndMIS-parc-xpc-small
+#    4.3188e+07,   #  pbbs-mm-ndMatching-parc-xpc-small
+#    4.40858e+07,  #  pbbs-nbody-parallelBarnesHut-parc-xpc-small
+#    4.39771e+07,  #  pbbs-rdups-deterministicHash-parc-xpc-small
+#    1.68911e+07,  #  rgb2cmyk-xpc
+#    7.97067e+07,  #  pbbs-sa-parallelRange-parc-xpc-small
+#    1.51311e+07,  #  sgemm-xpc
+#    7.89144e+06,  #  strsearch-xpc
+#  ],
+#
+#  # LTA-4/2x8/8
+#
+#  [
+#    1.04195e+07,  #  bilateral-xpc
+#    2.47246e+07,  #  dct8x8m-xpc
+#    2.85269e+06,  #  mriq-xpc
+#    3.68561e+07,  #  pbbs-bfs-deterministicBFS-parc-xpc-small
+#    6.41461e+07,  #  pbbs-bfs-ndBFS-parc-xpc-small
+#    4.04031e+07,  #  pbbs-dict-deterministicHash-parc-xpc-small
+#    7.21379e+07,  #  pbbs-isort-blockRadixSort-parc-xpc-small
+#    6.93992e+07,  #  pbbs-isort-blockRadixSort-parc-xpc-small-1
+#    4.77274e+07,  #  pbbs-knn-octTree2Neighbors-parc-xpc-small
+#    3.93823e+07,  #  pbbs-mis-ndMIS-parc-xpc-small
+#    5.09125e+07,  #  pbbs-mm-ndMatching-parc-xpc-small
+#    3.40489e+07,  #  pbbs-nbody-parallelBarnesHut-parc-xpc-small
+#    5.04328e+07,  #  pbbs-rdups-deterministicHash-parc-xpc-small
+#    1.88981e+07,  #  rgb2cmyk-xpc
+#    8.55908e+07,  #  pbbs-sa-parallelRange-parc-xpc-small
+#    2.16114e+07,  #  sgemm-xpc
+#    8.63648e+06,  #  strsearch-xpc
+#  ],
 
 #  # LTA-8/2x4/1
 #
@@ -464,7 +464,7 @@ mid = num_configs / 2.0
 
 # Bar widths
 
-width = 0.08
+width = 0.15
 
 # Colors
 
@@ -472,10 +472,10 @@ colors = [
   '#000000',
 #  '#F0B3FF',
   '#80FFBF',
-  '#FFCCCC',
-  '#FF9999',
-  '#FF6666',
-  '#FF3333',
+#  '#FFCCCC',
+#  '#FF9999',
+#  '#FF6666',
+#  '#FF3333',
   '#CCEBFF',
   '#99D6FF',
   '#66C2FF',
@@ -531,8 +531,8 @@ plt.axvline( x=num_bmarks-2, color='k', linewidth=1.5, linestyle='dashed' )
 # Cut-off lines
 
 labels = []
-labels.append( draw_cutoffs( 3.54, 9.8, '10.9', -0.25 ) )
-labels.append( draw_cutoffs( 3.64, 9.8, '12.0', 0.25 ) )
+labels.append( draw_cutoffs( 3.45, 9.8, '10.9', -0.25 ) )
+labels.append( draw_cutoffs( 3.62, 9.8, '12.0', 0.25 ) )
 
 # Legend
 

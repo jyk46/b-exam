@@ -20,9 +20,9 @@ import numpy as np
 fig_width_pt  = 768.0
 inches_per_pt = 1.0/72.27                     # convert pt to inch
 
-aspect_ratio  = 0.5
+aspect_ratio  = 0.54
 
-fig_width     = 7.8                           # width in inches
+fig_width     = 8.2                           # width in inches
 fig_height    = fig_width * aspect_ratio      # height in inches
 fig_size      = [ fig_width, fig_height ]
 
@@ -54,9 +54,9 @@ num_bmarks = len( bmarks )
 configs = [
   'io',
   'o3',
-  '4/1x8/1',
-  '4/2x8/1',
-  '4/4x8/1',
+#  '4/1x8/1',
+#  '4/2x8/1',
+#  '4/4x8/1',
   '8/1x4/1',
   '8/2x4/1',
   '8/4x4/1',
@@ -74,9 +74,9 @@ energy_data = [
   [
     1321694465.7,
     2506392584.32,
-    663007605.62 - 12053968.325,
-    867145085.24,
-    866983138.58,
+#    663007605.62 - 12053968.325,
+#    867145085.24,
+#    866983138.58,
     659045147.66 - 12134339.744,
     904477482.58,
     883914872.96,
@@ -88,9 +88,9 @@ energy_data = [
   [
     1073602322.5,
     2092823102.45,
-    614451161.48 - 53424701.663,
-    606284126.52,
-    696057840.32,
+#    614451161.48 - 53424701.663,
+#    606284126.52,
+#    696057840.32,
     666632826.36 - 53319701.925,
     632172782.8,
     707431514.24,
@@ -108,9 +108,9 @@ cycle_data = [
   [
     6.21762e+07,  # io
     2.2038e+07,   # o3
-    5.46224e+06,  # LTA-4/1x8/1
-    9.22017e+06,  # LTA-4/2x8/1
-    1.36042e+07,  # LTA-4/4x8/1
+#    5.46224e+06,  # LTA-4/1x8/1
+#    9.22017e+06,  # LTA-4/2x8/1
+#    1.36042e+07,  # LTA-4/4x8/1
     4.01958e+06,  # LTA-8/1x4/1
     6.39428e+06,  # LTA-8/2x4/1
     7.41608e+06,  # LTA-8/4x4/1
@@ -122,9 +122,9 @@ cycle_data = [
   [
     2.99491e+07,  # io
     9.5489e+06,   # o3
-    1.0382e+07,   # LTA-4/1x8/1
-    9.2244e+06,   # LTA-4/2x8/1
-    6.77705e+06,  # LTA-4/4x8/1
+#    1.0382e+07,   # LTA-4/1x8/1
+#    9.2244e+06,   # LTA-4/2x8/1
+#    6.77705e+06,  # LTA-4/4x8/1
     7.98038e+06,  # LTA-8/1x4/1
     7.79992e+06,  # LTA-8/2x4/1
     6.31471e+06,  # LTA-8/4x4/1
@@ -141,9 +141,9 @@ colors = [
   '#000000',
 #  '#F0B3FF',
   '#80FFBF',
-  '#FFCCCC',
-  '#FF9999',
-  '#FF6666',
+#  '#FFCCCC',
+#  '#FF9999',
+#  '#FF6666',
 #  '#E5FFF2',
 #  '#B3FFD9',
 #  '#80FFBF',
@@ -220,8 +220,9 @@ for i, ( ax, perf, eff ) in enumerate( zip( axes, norm_perf, norm_eff ) ):
     if i == 0:
       plots.append( sct )
 
-  ax.plot( perf[2:5], eff[2:5], c=colors[4] )
-  ax.plot( perf[5:9], eff[5:9], c=colors[8] )
+#  ax.plot( perf[2:5], eff[2:5], c=colors[4] )
+#  ax.plot( perf[5:9], eff[5:9], c=colors[8] )
+  ax.plot( perf[2:6], eff[2:6], c=colors[5] )
 
 # Power curve
 
